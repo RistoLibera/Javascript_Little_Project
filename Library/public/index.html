@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Library</title>
-    <link href="./style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
   <body>
@@ -20,21 +21,33 @@
       
       <div>
         <form id="book-input" method="post">
-          <label for="author">Author:</label><br/>
-          <input type="text" id="author" placeholder="Fullname" required>
+          <div class="input-area">
+            <label for="author">Author:</label><br/>
+            <input type="text" id="author" placeholder="Fullname" required>  
+          </div>
 
-          <label for="title">Title:</label><br/>
-          <input type="text" id="title" placeholder="Name" required>
+          <div class="input-area">
+            <label for="title">Title:</label><br/>
+            <input type="text" id="title" placeholder="Name" required>  
+          </div>
 
-          <label for="pages">Pages:</label><br/>
-          <input type="number" id="pages" placeholder="Amount" required>
+          <div class="input-area">
+            <label for="pages">Pages:</label><br/>
+            <input type="number" id="pages" placeholder="Amount" required>  
+          </div>
 
-          <span>Have you read the book?</span>
-          <label for="read">
-            <input type="checkbox" id="read">
-          </label>
+          <div class="input-area" id="submit-area">
+            <div>
+              <span>Read?</span>
+              <label for="read">
+                <input type="checkbox" id="read">
+              </label>    
+            </div>
 
-          <button type="submit">Add</button>
+            <div>
+              <button type="submit">Add</button>
+            </div>
+          </div>
         </form>
       </div>
     </section>
