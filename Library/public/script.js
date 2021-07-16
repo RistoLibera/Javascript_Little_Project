@@ -2,7 +2,7 @@
 const modal = document.querySelector(".modal"),
       openModalTrigger = document.querySelector(".trigger"),
       closeModalTrigger = document.querySelector(".close"),
-      form = document.getElementById("book-input")
+      form = document.getElementById("book-input"),
       libraryDivContainer = document.getElementById("render-library")
 
 // Initialize Library Array and new book variable.
@@ -42,6 +42,7 @@ form.addEventListener("submit", (event) => {
 
   myLibrary.push(newBook)
 
+  // Library functions
   renderBook(newBook)
 
   form.reset()
@@ -97,8 +98,33 @@ const renderBook = (book) => {
 
   bookContainerDiv.appendChild(removeBookBtn)
 
+  // Get specific book title
+  function getBookTitle(event) {
+    bookTitleParagraph = event.target.parentElement.getElementsByClassName("book-title")
+    bookTitle = bookTitleParagraph[0].innerHTML
+    return bookTitle
+  } 
+
+  // Update LocalStorage
+  function updateLocalStorage(bookTitle, option) {
+    let localDB = JSON.parse(localStorage.getItem("myLibrary"))
+    localDB.map((book, index) => {
+      if(book["title"] === bookTitle && option == 1){
+        myLibrary.splice(index, 1)
+        localDB.splice(index ,1)
+        tempLibrary = JSON.stringify(localDB)
+        localStorage.setItem("myLibrary", tempLibrary)
+      }  else if(book["title"] === bookTitle){
+        myLibrary[index]["read"] = !(myLibrary[index]["read"])
+        localDB[index]["read"] = !(localDB[index]["read"])
+        tempLibrary = JSON.stringify(localDB)
+        localStorage.setItem("myLibrary", tempLibrary)
+      }
+    })
+  }
+
   // Toggle read status
-  btnNode.addEventListener("click", () =>{
+  btnNode.addEventListener("click", (e) =>{    
     if(btnNode.innerHTML.split(" ")[1] === "Yes") {
       btnNode.style.backgroundColor = "red"
       btnNode.innerHTML = "Read: No"
@@ -106,30 +132,17 @@ const renderBook = (book) => {
       btnNode.style.backgroundColor = "limegreen"
       btnNode.innerHTML = "Read: Yes"
     }
+
+    bookStatus = e.target.innerHTML
+    changedBookTitle = getBookTitle(e)
+    updateLocalStorage(changedBookTitle, 2)
   })
 
-  // Remove book record only on display
-  // removeBookBtn.addEventListener("click", (e) => {
-  //   e.target.parentElement.remove()
-  // })
-
   //Remove book record
-  let localDB = JSON.parse(localStorage.getItem("myLibrary"))
   removeBookBtn.addEventListener("click", (e) =>{
-    // Remove on display
     e.target.parentElement.remove()
-
-    bookTitleParagraph = e.target.parentElement.getElementsByClassName("book-title")
-    removedBookTitle = bookTitleParagraph[0].innerHTML
-
-    localDB.map((book, index) => {
-      if(book["title"] === removedBookTitle){
-        localDB.splice(index ,1)
-        tempLibrary = JSON.stringify(localDB)
-        // Remove in database
-        localStorage.setItem("myLibrary", tempLibrary)
-      }
-    })
+    removedBookTitle = getBookTitle(e)
+    updateLocalStorage(removedBookTitle, 1)
   })
 }
 
@@ -138,12 +151,14 @@ function renderLibraryStorage() {
   if(localStorage.myLibrary) {
     let getBooks = JSON.parse(localStorage.getItem("myLibrary")) 
     getBooks.map((book) => {
+      // Refresh web database
       myLibrary.push(book)
       renderBook(book)
     })
   }
 }
 
+// Running when refreshing
 renderLibraryStorage()
 
 
