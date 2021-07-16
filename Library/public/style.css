@@ -63,3 +63,36 @@ header h1 {
   flex-direction: row;
   justify-content: space-between;
 }
+
+#render-library {
+  display: flex;
+  flex-direction:row;
+  margin: auto 0;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Added by Javascript */
+.book-container {
+  padding: 10px;
+  margin: 4px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: minmax(120px, 180px);
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 5px;
+  background-color: rgba(184, 180, 180, 0.6);
+}
+
+.book-detail {
+  padding: 5px;
+}
+
+.book-title {
+  text-transform: uppercase;
+}
+
+.book-author {
+  text-transform: capitalize;
+}
