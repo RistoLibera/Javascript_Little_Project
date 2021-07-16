@@ -106,7 +106,11 @@ const renderBook = (book) => {
       btnNode.innerHTML = "Read: Yes"
     }
   })
-  
+
+  // Remove book record
+  removeBookBtn.addEventListener("click", (e) => {
+    e.target.parentElement.remove()
+  })
 }
 
 
