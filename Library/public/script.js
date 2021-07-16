@@ -46,7 +46,8 @@ form.addEventListener("submit", (event) => {
 
   form.reset()
   modal.classList.remove("open")
-
+  //LocalStorage only supports strings. Use JSON.stringify() and JSON.parse().
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
 })
 
 const renderBook = (book) => {
@@ -107,11 +108,42 @@ const renderBook = (book) => {
     }
   })
 
-  // Remove book record
-  removeBookBtn.addEventListener("click", (e) => {
+  // Remove book record only on display
+  // removeBookBtn.addEventListener("click", (e) => {
+  //   e.target.parentElement.remove()
+  // })
+
+  //Remove book record
+  let localDB = JSON.parse(localStorage.getItem("myLibrary"))
+  removeBookBtn.addEventListener("click", (e) =>{
+    // Remove on display
     e.target.parentElement.remove()
+
+    bookTitleParagraph = e.target.parentElement.getElementsByClassName("book-title")
+    removedBookTitle = bookTitleParagraph[0].innerHTML
+
+    localDB.map((book, index) => {
+      if(book["title"] === removedBookTitle){
+        localDB.splice(index ,1)
+        tempLibrary = JSON.stringify(localDB)
+        // Remove in database
+        localStorage.setItem("myLibrary", tempLibrary)
+      }
+    })
   })
 }
 
+// Display myLibrary even when refreshing
+function renderLibraryStorage() {
+  if(localStorage.myLibrary) {
+    let getBooks = JSON.parse(localStorage.getItem("myLibrary")) 
+    getBooks.map((book) => {
+      myLibrary.push(book)
+      renderBook(book)
+    })
+  }
+}
+
+renderLibraryStorage()
 
 
