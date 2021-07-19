@@ -36,12 +36,49 @@ const Player = (name) => {
 
 // Player form
 const playerForm = (() => {
+  const modal = document.getElementById("modal")
+  const form = document.getElementById("form")
+  const playerOneName = document.getElementById("nameOne")
+  const playerTwoName = document.getElementById("nameTwo")
 
+  const handleForm = (event) => {
+    modal.style.display = "none"
+    event.preventDefault();
+  }
+
+  const createPlayers = () => {
+    let playerOne = Player(playerOneName.value)
+    let playerTwo = Player(playerTwoName.value)
+
+    gameFlow.players.push(playerOne)
+    gameFlow.players.push(playerTwo)
+    // Hide the form
+  }
+
+  const updateName = () => {
+    let playerOneHTML = document.getElementById("player-one")
+    let playerTwoHTML = document.getElementById("player-two")
+
+    let playerOneName = gameFlow.players[0]
+    let playerTwoName = gameFlow.players[1]
+
+    playerOneHTML.textContent = "Player-One: " + playerOneName.name
+    playerTwoHTML.textContent = "Player-two: " + playerTwoName.name
+  }
+
+  form.addEventListener("submit", handleForm)
+  form.addEventListener("submit", createPlayers)
+  form.addEventListener("submit", updateName)
+
+  return {
+    createPlayers
+  }
 })()
+
 // Gameboard interation
 const gameBoard = (() => {
   gameArea.init()
-
+  playerForm.createPlayers
   gameArea.board.forEach((p) => {
     p.addEventListener("click", (e) => {
       gameBlock = e.target

@@ -17,14 +17,38 @@
     <section id="game-section">
       <div id="player-area">
         <div class="players">
-          <h1 id="player-one">Player-One:</h1>
+          <h1 id="player-one"></h1>
         </div>
         <div class="players">
-          <h1 id="player-two">Player-two:</h1>
+          <h1 id="player-two"></h1>
         </div>  
       </div>
 
       <div id="game-grid">
+      </div>
+    </section>
+
+    <section id="modal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h1>Input player names</h1>
+        </div>
+
+        <form id="form">
+          <div class="input-area">
+            <label for="name-one">Player-One:</label><br/>
+            <input type="text" id="nameOne" placeholder="Player One" required>  
+          </div>
+
+          <div class="input-area">
+            <label for="name-two">Player-Two:</label><br/>
+            <input type="text" id="nameTwo" placeholder="Player Two" required>  
+          </div>
+
+          <div class="submit-area">
+            <button type="submit">Proceed</button>
+          </div>
+        </form>
       </div>
     </section>
 

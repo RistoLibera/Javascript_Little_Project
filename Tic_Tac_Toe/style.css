@@ -38,3 +38,50 @@
   font-size: 3rem;
   background-color: rgb(173, 170, 170);
 }
+
+#modal {
+  background-color: white;
+  padding: 3rem 0;
+  position: absolute;  
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 0px;
+  display: block;
+}
+
+
+.modal-container {
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-header {
+  margin: 5px;
+  margin-bottom:1rem;
+}
+
+.modal-header h1 {
+  font-size: 1.5rem;
+}
+
+.input-area {
+  margin: 20px;
+}
+
+.input-area label {
+  font-size: 1rem;
+}
+
+.input-area input {
+  margin-top: 15px;
+}
+
+.submit-area {
+  text-align: center;
+}
+
+
+
