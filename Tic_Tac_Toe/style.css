@@ -8,10 +8,14 @@
 }
 
 #game-section {
-  margin: 50px 200px;
+  margin: 20px 200px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+#player-area {
+  margin-top: 40px;
 }
 
 .players {
@@ -23,13 +27,14 @@
 }
 
 #game-grid {
-  margin-right: 200px;
+  margin-right: 20px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-gap: 50px;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  grid-gap: 10px;
 }
 
 .grid-item {
   font-size: 3rem;
+  background-color: rgb(173, 170, 170);
 }
