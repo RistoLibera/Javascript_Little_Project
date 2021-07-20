@@ -96,6 +96,8 @@ const gameBoard = (() => {
         gameFlow.turnNumber++
         gameFlow.turn = "player-one"
       }
+      gameFlow.checkWin()
+
     })
   })
 
@@ -106,12 +108,33 @@ const gameFlow = (() => {
   let turn = "player-one"
   let turnNumber = 1
   let players = []
-
+  const winCondition = [
+    [1,2,3], [4,5,6], [7,8,9], 
+    [1,4,7], [2,5,8], [3,6,9],
+    [1,5,9], [3,5,7]
+  ]
+  const checkWin = () => {
+    Moves = players.forEach((player) => {
+      console.log(player)
+      winCondition.forEach((win) => {
+        // winning position is within player's moves
+        hasWin = win.every(position => player.playerMoves.includes(position.toString()))
+        if (hasWin) {
+          winMessage = player.name + " wins !"
+          alert(winMessage)
+          location.reload()
+        }
+      })
+    })
+  }
   return {
     turn,
     turnNumber,
-    players
+    players,
+    checkWin
   }
+
+  
 })()
 
 
