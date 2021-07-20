@@ -19,18 +19,19 @@ const gameArea = (() => {
   }
 
   return {
-    init,
-    board
+    board,
+    init
   }
 })()
 
 // Player factory
 const Player = (name) => {
   let playerMoves = []
-
+  let hasWin = false
   return {
     name,
-    playerMoves
+    playerMoves,
+    hasWin
   }
 }
 
@@ -52,7 +53,6 @@ const playerForm = (() => {
 
     gameFlow.players.push(playerOne)
     gameFlow.players.push(playerTwo)
-    // Hide the form
   }
 
   const updateName = () => {
@@ -72,7 +72,6 @@ const playerForm = (() => {
   form.addEventListener("submit", handleForm)
   form.addEventListener("submit", createPlayers)
   form.addEventListener("submit", updateName)
-
 })()
 
 // Gameboard interation
@@ -87,56 +86,64 @@ const gameBoard = (() => {
         // Push player moves
         gameFlow.players[0].playerMoves.push(e.target.id)
         gameBlock.innerHTML = "X"
-        gameFlow.turnNumber++
+        gameFlow.turnNumber.push("+")
         gameFlow.turn = "player-two"
       } else {
         // Push player moves
         gameFlow.players[1].playerMoves.push(e.target.id)
         gameBlock.innerHTML = "O"
-        gameFlow.turnNumber++
+        gameFlow.turnNumber.push("+")
         gameFlow.turn = "player-one"
       }
       gameFlow.checkWin()
-
+      gameFlow.checkDraw()
     })
   })
-
 })()
 
 // Game control
 const gameFlow = (() => {
   let turn = "player-one"
-  let turnNumber = 1
+  // Local variables is hard to change, but push function is one exception
+  let turnNumber = []
   let players = []
   const winCondition = [
     [1,2,3], [4,5,6], [7,8,9], 
     [1,4,7], [2,5,8], [3,6,9],
     [1,5,9], [3,5,7]
   ]
+
   const checkWin = () => {
     Moves = players.forEach((player) => {
-      console.log(player)
       winCondition.forEach((win) => {
-        // winning position is within player's moves
-        hasWin = win.every(position => player.playerMoves.includes(position.toString()))
-        if (hasWin) {
-          winMessage = player.name + " wins !"
+        // To check whether winning position is within player's moves
+        won = win.every(position => player.playerMoves.includes(position.toString()))
+        if (won) {
+          player.hasWin = true
+          winMessage = player.name + " wins!"
           alert(winMessage)
           location.reload()
         }
       })
     })
   }
+
+  const checkDraw = () => {
+    // Array length is the turn number
+    if (turnNumber.length >= 9 && !(players[0].hasWin) && !(players[1].hasWin)) {
+      drawMessage = "Draw!"
+      alert(drawMessage)
+      location.reload()
+    }
+  }
+
   return {
     turn,
     turnNumber,
     players,
-    checkWin
+    checkWin,
+    checkDraw,
   }
-
-  
 })()
-
-
 
 
