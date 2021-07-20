@@ -64,31 +64,34 @@ const playerForm = (() => {
 
     playerOneHTML.textContent = "Player-One: " + playerOneName.name
     playerTwoHTML.textContent = "Player-two: " + playerTwoName.name
+
+    // Clear form space
+    form.reset()
   }
 
   form.addEventListener("submit", handleForm)
   form.addEventListener("submit", createPlayers)
   form.addEventListener("submit", updateName)
 
-  return {
-    createPlayers
-  }
 })()
 
 // Gameboard interation
 const gameBoard = (() => {
   gameArea.init()
-  playerForm.createPlayers
   gameArea.board.forEach((p) => {
     p.addEventListener("click", (e) => {
       gameBlock = e.target
       if (gameBlock.innerHTML === "X" || gameBlock.innerHTML === "O") {
         alert("Taken!")
       } else if (gameBlock.innerHTML === " " && gameFlow.turn === "player-one") {
+        // Push player moves
+        gameFlow.players[0].playerMoves.push(e.target.id)
         gameBlock.innerHTML = "X"
         gameFlow.turnNumber++
         gameFlow.turn = "player-two"
       } else {
+        // Push player moves
+        gameFlow.players[1].playerMoves.push(e.target.id)
         gameBlock.innerHTML = "O"
         gameFlow.turnNumber++
         gameFlow.turn = "player-one"
@@ -98,6 +101,7 @@ const gameBoard = (() => {
 
 })()
 
+// Game control
 const gameFlow = (() => {
   let turn = "player-one"
   let turnNumber = 1
