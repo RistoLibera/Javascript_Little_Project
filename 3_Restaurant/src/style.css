@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'Belleza';
+  src: url('https://fonts.gstatic.com/s/belleza/v9/0nkoC9_pNeMfhX4BhcH4ag.woff2')
+}
+
+body {
+  font-family: 'Belleza';
+  background-color: black;
+  min-height: 100vh;
+  position: relative;
+}
+
+#content {
+  color:white;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+.home {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://www.messynessychic.com/wp-content/uploads/2015/04/food.jpg');
+  height:93vh;
+  background-position: center 20%;
+}
+
+.about {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://2cq5lp1tkadn309yxaxryb15-wpengine.netdna-ssl.com/wp-content/uploads/2019/07/Kendall-fine-dining-room-bar.jpg');
+  height:35vh;
+  background-position: center 20%;
+}
+
+.menu {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://static.messynessychic.com/wp-content/uploads/2015/04/fancyjunk6.jpg');
+  height: 25vh;
+  background-position: center;
+}
+
+.contact {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.redd.it/ib04ch2fmz231.png');
+  height: 30vh;
+  background-position: center 65%;
+}
+
+header {
+  text-align:center;
+}
+
+header h1 {
+  padding:1em;
+  font-size: 3em;
+}
+
+header p {
+  font-size:2rem;
+}
+
+.container {
+  max-width: 800px;
+  color:white;
+  text-align:center;
+  margin:0 auto;
+  padding: 0 1em 7vh 1em;
+}
+
+.container h1 {
+  max-width: 700px;
+}
+
+nav {
+  height:40px;
+  max-width: 80%;
+  margin: 0 auto;
+  display:flex;
+  align-items:center;
+  border-bottom: 1px solid rgba(110,110,110,0.5);
+}
+
+nav button {
+  height: 100%;
+  padding: 0 1em;
+  display:flex;
+  align-items:center;
+  font-size:1.3em;
+  background:none;
+  border:none;
+  color:white;
+}
+
+nav button:hover {
+  color:grey;
+  transition: all 0.2s ease;
+  cursor:pointer;
+}
+
+.active {
+  border-radius:5px;
+  background-color:rgba(255,255,255,0.2);
+}
+
+footer {
+  height:7vh;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:absolute;
+  max-width:100%;
+  bottom:0;
+  left:0;
+  right:0;
+  text-align:center;
+  padding: 0 1em;
+  box-sizing:border-box;
+}
