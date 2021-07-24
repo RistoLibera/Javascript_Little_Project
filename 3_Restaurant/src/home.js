@@ -3,15 +3,15 @@ import footer from "./footer"
 
 let home = () => {
   // Create content div and append
+  let body = document.querySelector("body")
   let content
   if(!document.getElementById("content")) {
     content = document.createElement("div")
     content.setAttribute("id", "content")  
+    body.appendChild(content)
   }  else {
     content = document.getElementById("content")
   }
-  let body = document.querySelector("body")
-  body.appendChild(content)
 
   // Change background
   content.classList.add("home")
@@ -42,12 +42,11 @@ let home = () => {
   header.appendChild(tagline)
 
   content.appendChild(container)
-
   // Get footer
   if(!document.querySelector("footer")) {
     let footerbar = footer()
     body.appendChild(footerbar)
-  }
+  } 
 }
 
 export default home
