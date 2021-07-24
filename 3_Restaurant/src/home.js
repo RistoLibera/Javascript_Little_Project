@@ -46,7 +46,7 @@ let home = () => {
   // Get footer
   if(!document.querySelector("footer")) {
     let footerbar = footer()
-    content.appendChild(footerbar)
+    body.appendChild(footerbar)
   }
 }
 

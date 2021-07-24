@@ -50,7 +50,15 @@ header h1 {
 }
 
 header p {
-  font-size:2rem;
+  font-size:1rem;
+}
+
+.text {
+  font-size:1.2em;
+}
+
+li {
+  padding: 1em;
 }
 
 .container {
@@ -63,6 +71,8 @@ header p {
 
 .container h1 {
   max-width: 700px;
+  padding: 1em;
+  font-size: 3em;
 }
 
 nav {
@@ -110,4 +120,23 @@ footer {
   text-align:center;
   padding: 0 1em;
   box-sizing:border-box;
+}
+
+.container p {
+  font-size: 1.2em;
+  padding-bottom: 2em;
+}
+
+@media (max-width:440px) {
+  nav button {
+    font-size: 0.85rem;
+  }
+
+  .container {
+    font-size: 15px;
+  }
+
+  .container p {
+    font-size: 1.3em;
+  }
 }
