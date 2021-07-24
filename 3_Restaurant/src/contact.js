@@ -23,9 +23,7 @@ let contact = () => {
   container.appendChild(phone)
   container.appendChild(email)
 
-  let body = document.querySelector('body')
-  let footer = document.querySelector('footer')
-  body.insertBefore(container, footer)
+  content.appendChild(container)
 }
 
 export default contact

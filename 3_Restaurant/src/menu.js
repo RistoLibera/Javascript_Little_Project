@@ -23,10 +23,7 @@ let menu = () => {
 
   container.appendChild(menu)
 
-
-  let body = document.querySelector('body')
-  let footer = document.querySelector('footer')
-  body.insertBefore(container, footer)
+  content.appendChild(container)
 }
 
 export default menu

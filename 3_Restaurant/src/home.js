@@ -24,10 +24,6 @@ let home = () => {
   let homeBtn = document.getElementById('home')
   homeBtn.classList.add('active')
 
-
-  // let home = document.getElementById("home")
-  // home.classList.add("active")
-
   let container = document.createElement("div")
   container.classList.add("container")
 

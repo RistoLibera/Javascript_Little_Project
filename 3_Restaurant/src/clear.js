@@ -4,6 +4,7 @@ let clear= () => {
   container.remove()
   content.className = ""
 
+  // deactivate buttons
   let buttons = document.getElementsByTagName('button')
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].className = ""

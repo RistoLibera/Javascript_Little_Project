@@ -1,6 +1,5 @@
 let about = () => {
   // Change background
-  let body = document.querySelector("body")
   let content = document.getElementById('content')
   content.classList.add('about')
 
@@ -20,9 +19,7 @@ let about = () => {
   container.appendChild(headline)
   container.appendChild(tagline)
 
-  // Insert container before footer
-  let footer = document.querySelector('footer')
-  body.insertBefore(container, footer)
+  content.appendChild(container)
 }
 
 export default about
