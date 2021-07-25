@@ -1,7 +1,6 @@
 html,body {
   margin: 0;
   height: 100%;
-
 }
 
 #container {
@@ -30,6 +29,8 @@ aside {
 button {
   border: none;
   background-color: transparent;
+  cursor: pointer;
+  background-color: #9dbff1;
 }
 
 .material-icons {
@@ -44,7 +45,7 @@ button {
 
   button {
     color: white;
-    padding-left: 1rem;  
+    margin-left: 1rem;  
 
     span {
       font-size: 40px;
@@ -71,7 +72,7 @@ button {
 
 #banner-title {
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 #add-project {
@@ -95,12 +96,10 @@ button {
 
 .pop-up {
   position: relative;
-  top: 25vh;
-  bottom: 10vh;
-  left: 30vw;
-  right: 30vw;
+  top: 15%;
+  margin: 0 auto;
   background-color: #b9b9d9;;
-  width: 40vw;
+  max-width: 60%;
 }
 
 form {
@@ -125,7 +124,6 @@ form {
   button {
     height: 30px;
     width: 40%;
-    background-color: #9dbff1;
   }
 
   input[type="submit"] {
@@ -133,5 +131,108 @@ form {
     border: none;
     width: 40%;
     background-color: #9dbff1;
+    cursor: pointer;
+  }
+}
+
+.project {
+  grid-column: 2/3;
+  padding: 2rem;
+
+  .banner {
+
+    .left-banner {
+      display: flex;
+      align-items: center;
+
+      .project-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      button {
+        margin: 0 10px;
+      }
+    }
+
+    .right-banner {
+      margin-right: 30px;
+    }
+  }
+}
+
+textarea {
+  height: 90px;
+}
+
+
+.date-area {
+  display: flex;
+  align-items: center;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  label {
+    height: 36px;
+    border: 1px solid #a4a4a4;
+    border-right: none;
+    background-color: white;
+    font-size: 15px;
+    padding: 4px;
+  }
+
+  input {
+    height: 36px;
+    padding-left: 5px;
+    border: 1px solid #a4a4a4;
+    border-left: 1px dashed gray;
+  }
+}
+
+table {
+  width: 100%;
+}
+
+tr {
+  background-color: #f5faff;
+}
+
+th, td {
+  min-width: 20px;
+  border: 2px solid #cecece;
+  padding: 15px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+th {
+  background-color: #a183ff78;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.todo-table {
+  margin-top: 1.4rem;
+
+  .todo-items {
+
+    .low {
+      background-color: lightblue;
+    }
+  
+    .medium {
+      background-color: lightgreen;
+    }
+  
+    .high {
+      background-color: lightcoral;
+    }
+  
+    .complete {
+      background-color: lightgray;
+      text-decoration: line-through;
+    }      
   }
 }

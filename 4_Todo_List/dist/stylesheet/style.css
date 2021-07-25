@@ -29,6 +29,8 @@ aside {
 button {
   border: none;
   background-color: transparent;
+  cursor: pointer;
+  background-color: #9dbff1;
 }
 
 .material-icons {
@@ -44,7 +46,7 @@ button {
 }
 #container-header button {
   color: white;
-  padding-left: 1rem;
+  margin-left: 1rem;
 }
 #container-header button span {
   font-size: 40px;
@@ -69,7 +71,7 @@ button {
 
 #banner-title {
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 #add-project {
@@ -92,12 +94,10 @@ button {
 
 .pop-up {
   position: relative;
-  top: 25vh;
-  bottom: 10vh;
-  left: 30vw;
-  right: 30vw;
+  top: 15%;
+  margin: 0 auto;
   background-color: #b9b9d9;
-  width: 40vw;
+  max-width: 60%;
 }
 
 form {
@@ -121,13 +121,97 @@ form h2 {
 .form-row button {
   height: 30px;
   width: 40%;
-  background-color: #9dbff1;
 }
 .form-row input[type=submit] {
   height: 30px;
   border: none;
   width: 40%;
   background-color: #9dbff1;
+  cursor: pointer;
+}
+
+.project {
+  grid-column: 2/3;
+  padding: 2rem;
+}
+.project .banner .left-banner {
+  display: flex;
+  align-items: center;
+}
+.project .banner .left-banner .project-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.project .banner .left-banner button {
+  margin: 0 10px;
+}
+.project .banner .right-banner {
+  margin-right: 30px;
+}
+
+textarea {
+  height: 90px;
+}
+
+.date-area {
+  display: flex;
+  align-items: center;
+}
+.date-area * {
+  box-sizing: border-box;
+}
+.date-area label {
+  height: 36px;
+  border: 1px solid #a4a4a4;
+  border-right: none;
+  background-color: white;
+  font-size: 15px;
+  padding: 4px;
+}
+.date-area input {
+  height: 36px;
+  padding-left: 5px;
+  border: 1px solid #a4a4a4;
+  border-left: 1px dashed gray;
+}
+
+table {
+  width: 100%;
+}
+
+tr {
+  background-color: #f5faff;
+}
+
+th, td {
+  min-width: 20px;
+  border: 2px solid #cecece;
+  padding: 15px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+th {
+  background-color: #a183ff78;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.todo-table {
+  margin-top: 1.4rem;
+}
+.todo-table .todo-items .low {
+  background-color: lightblue;
+}
+.todo-table .todo-items .medium {
+  background-color: lightgreen;
+}
+.todo-table .todo-items .high {
+  background-color: lightcoral;
+}
+.todo-table .todo-items .complete {
+  background-color: lightgray;
+  text-decoration: line-through;
 }
 
 /*# sourceMappingURL=style.css.map */
