@@ -4,11 +4,109 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="main.js"></script>
   </head>
 
   <body>
+    <div id="container">
+      <header>
+        <h1>Todo List</h1>
+      </header>
+
+      <!-- Sidebar to control projects -->
+      <aside id="project">
+        <div class="banner">
+          <h2>Project</h2>
+          <button id="add-project">
+            <span class="material-icons">add</span>
+          </button>
+        </div>
+
+        <ul class="project-list"></ul>
+      </aside>
+
+      <!-- Form to add new project -->
+      <form class="pop-up hidden new-project-form">
+        <h1>New Project</h1>
+        <input class="form-row" type="text" name="title" placeholder="Project Name" required>
+        <div class="form-row">
+          <button class="cancel-project">Cancel</button>
+          <input type="submit" value="+">
+        </div>
+      </form>
+
+      <!-- Project body -->
+      <section class="hidden project">
+        <div class="banner">
+          <div class="left-banner">
+            <h2 class="project-title"></h2>
+            <button class="edit-project">
+              <span class="material-icons">edit</span>
+            </button>
+            <button class="delete-project">
+              <span class="material-icons">delete</span>
+            </button>
+          </div>
+
+          <div class="right-banner">
+            <button class="new-todo">
+              <span class="material-icons">add</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Form to edit this project -->
+        <form class="pop-up hiddenedit-project-form"></form>
+
+        <!-- Form to add new todo -->
+        <form class="pop up hiddennew-todo-form">
+          <h2>New Todo</h2>
+          <input type="text" name="title" class="form-row" placeholder="Title" required>
+          <textarea name="description" placeholder="Description" requried></textarea>
+
+          <div class="form-row">
+            <div>
+              <label for="date">Deadline</label>
+              <input type="date" id="date" name="due-date">
+            </div>
+            <select name="priority" required>
+              <optgroup label="priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <button class="cancel-todo">Cancel</button>
+            <input type="submit" value="+">  
+          </div>
+        </form>
+
+        <!-- What to do -->
+        <table class="todo-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Due</th>
+              <th>Priority</th>
+              <th>
+                <span class="material-icons">done</span>
+              </th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="todo-items"></tbody>
+        </table>
+
+        <!-- Form to edit this todo -->
+        <form class="edit-todo pop-up hidden"></form>
+      </section>
+    </div>
   </body>
 </html>
