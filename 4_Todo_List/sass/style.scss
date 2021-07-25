@@ -22,7 +22,6 @@ header {
 }
 
 aside {
-  width: 25vw;
   padding-left: 0.5rem;
 }
 
@@ -43,6 +42,10 @@ button {
 #container-header {
   grid-column: 1/3;
 
+  .toggle-project {
+    background-color: transparent;
+  }
+
   button {
     color: white;
     margin-left: 1rem;  
@@ -53,13 +56,21 @@ button {
   }
 }
 
-#project {
+.project {
   grid-column: 1/2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   box-shadow: 1px 7px 8px 1px #998c8c;
   padding: 15px;
+  transition: 1s;
+  width: 0;
+  transform: translateX(-400px);
+}
+
+.active {
+  width: 26vw;
+  transform: translateX(0);
 }
 
 .banner {
@@ -135,7 +146,7 @@ form {
   }
 }
 
-.project {
+.project-body {
   grid-column: 2/3;
   padding: 2rem;
 

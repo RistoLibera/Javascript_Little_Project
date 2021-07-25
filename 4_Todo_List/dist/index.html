@@ -7,15 +7,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet/reset.css">
     <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
-    <script src="main.js"></script>
   </head>
 
   <body>
     <div id="container">
       <header id="container-header">
         <button class="toggle-project">
-          <span class="material-icons">close</span>
-          <span class="material-icons hidden">menu</span>
+          <span class="material-icons toggle-icons">close</span>
+          <span class="material-icons toggle-icons hidden">menu</span>
         </button>
         <h1>Todo List</h1>
         <div></div>
@@ -23,7 +22,7 @@
 
       
       <!-- Sidebar to control projects -->
-      <aside id="project">
+      <aside class="project active">
         <div class="banner">
           <h2 id="banner-title">Projects</h2>
           <button id="add-project">
@@ -47,7 +46,7 @@
       </section>
 
       <!-- Project body -->
-      <section class="project hidden">
+      <section class="project-body hidden">
         <div class="banner">
           <div class="left-banner">
             <h2 class="project-title">project-title</h2>
@@ -122,5 +121,7 @@
         </section>
       </section>
     </div>
+
+    <script src="main.js"></script>
   </body>
 </html>
