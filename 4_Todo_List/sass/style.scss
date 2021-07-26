@@ -93,6 +93,17 @@ button {
 // Dynamical content
 .project-list {
   margin-top: 10px;
+  width: 100%;
+  
+  li {
+    word-wrap: break-word;
+    margin: 20px 20px 10px 24px;
+    font-size: 1.4rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .modal {
@@ -155,10 +166,12 @@ form {
     .left-banner {
       display: flex;
       align-items: center;
+      margin-left: 30px;
 
-      .project-title {
+      .project-name {
         font-size: 1.1rem;
         font-weight: 600;
+        margin-right: 10px;
       }
 
       button {

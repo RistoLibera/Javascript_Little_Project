@@ -90,6 +90,15 @@ button {
 
 .project-list {
   margin-top: 10px;
+  width: 100%;
+}
+.project-list li {
+  word-wrap: break-word;
+  margin: 20px 20px 10px 24px;
+  font-size: 1.4rem;
+}
+.project-list li:hover {
+  cursor: pointer;
 }
 
 .modal {
@@ -147,10 +156,12 @@ form h2 {
 .project-body .banner .left-banner {
   display: flex;
   align-items: center;
+  margin-left: 30px;
 }
-.project-body .banner .left-banner .project-title {
+.project-body .banner .left-banner .project-name {
   font-size: 1.1rem;
   font-weight: 600;
+  margin-right: 10px;
 }
 .project-body .banner .left-banner button {
   margin: 0 10px;
