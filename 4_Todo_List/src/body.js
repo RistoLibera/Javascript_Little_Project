@@ -7,6 +7,9 @@ const editProjectModal = document.querySelector(".edit-project-form-modal")
 const editProjectForm = document.querySelector(".edit-project-form")
 const editProjectBtn = document.querySelector(".edit-project")
 const delProjectBtn = document.querySelector(".delete-project")
+const newTodoModal = document.querySelector(".new-todo-form-modal")
+const newProjectForm = document.querySelector(".new-todo-form")
+const newTodoBtn = document.querySelector(".new-todo")
 
 // Hide body when no projects
 const autoHideBody = (() => {
@@ -26,7 +29,7 @@ const autoShowBody = (() => {
 })()
 
 // Open edit project form
-const canTriggerProjectForm = (() =>{
+const canTriggerEditProjectForm = (() =>{
   editProjectBtn.onclick = () => {
     editProjectModal.classList.toggle("hidden")
   }
@@ -41,4 +44,10 @@ const canEditProject = (() => {
 const canDeleteProject = (() => {
   delProjectBtn.addEventListener("click", deleteThisProject)
 })()
-// remember to delete two storage
+
+// Open new todo form
+const canTriggerNewTodoForm = (() => {
+  newTodoBtn.onclick = () => {
+    newTodoModal.classList.toggle("hidden")
+  }
+})()

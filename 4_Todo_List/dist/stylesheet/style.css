@@ -221,16 +221,16 @@ th {
 .todo-table {
   margin-top: 1.4rem;
 }
-.todo-table .todo-items .low {
+.todo-table .todo-list .low {
   background-color: lightblue;
 }
-.todo-table .todo-items .medium {
+.todo-table .todo-list .medium {
   background-color: lightgreen;
 }
-.todo-table .todo-items .high {
+.todo-table .todo-list .high {
   background-color: lightcoral;
 }
-.todo-table .todo-items .complete {
+.todo-table .todo-list .complete {
   background-color: lightgray;
   text-decoration: line-through;
 }

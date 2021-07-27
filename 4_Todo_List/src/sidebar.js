@@ -1,6 +1,8 @@
 import {Project, storeProject, getAllProjects, 
         findProject, syncProject, createNewProject} from "./project"
+import {getTodoContent} from "./todo"
 
+const modalSections = document.getElementsByClassName("modal")
 const sidebar = document.querySelector(".project")
 const toggleBtn = document.querySelector(".toggle-project")
 const toggleIcons = document.querySelectorAll(".toggle-icons")
@@ -11,6 +13,7 @@ const cancelBtns = document.getElementsByClassName("cancel")
 const projectList = document.querySelector(".project-list")
 const projectBody = document.querySelector(".project-body")
 const projectName = document.querySelector(".project-name")
+const todoList = document.querySelector(".todo-list")
 
 // Show or hide sidebar
 let canToggleSideBar = (() => {
@@ -21,7 +24,7 @@ let canToggleSideBar = (() => {
 })()
 
 // Open new project form
-let canTriggerProjectForm = (() => {
+let canTriggerNewProjectForm = (() => {
   addProjectBtn.onclick = () => {
     newProjectModal.classList.toggle("hidden")
   }
@@ -41,6 +44,20 @@ let canCancelForm = (() => {
       modal.classList.toggle("hidden")
     }
   })
+})()
+
+// Cancel form by clicking outside
+let canClickOutside = (() => {
+  window.addEventListener("click", (e) => {
+    let classes = e.target.className.split(" ")
+    let hasModal = classes.some((oneclass) => oneclass == "modal")
+    if (hasModal) {
+      let modals = Array.from(modalSections)
+      modals.forEach((section) => {
+        section.classList.add("hidden")
+      } )
+    }
+  })  
 })()
 
 // Show projects
@@ -64,7 +81,7 @@ let canShowContent = (() => {
       // Synchronize current project
       syncProject(project)
       showProjectName(project)
-      // here !
+      showTodos(project)
       projectBody.classList.remove("hidden")  
     })
   })
@@ -76,9 +93,10 @@ let canShowContent = (() => {
 
   // Update todo list 
   let showTodos = (project) => {
-
+    let todoItems = getTodoContent(project)
+    if (todoItems) {
+      todoList.innerHTML =  todoItems.map((tableRow) => tableRow).join("")
+    }
   }
 })()
-
-
 
