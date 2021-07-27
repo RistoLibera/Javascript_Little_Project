@@ -1,4 +1,5 @@
-import {getAllProjects, getCurrentProject, editThisProject} from "./project"
+import {getAllProjects, getCurrentProject, editThisProject, 
+        deleteThisProject} from "./project"
 
 const projectBody = document.querySelector(".project-body")
 const projectName = document.querySelector(".project-name")
@@ -31,8 +32,13 @@ const canTriggerProjectForm = (() =>{
   }
 })()
 
-// // Edit project
+// Edit project
 const canEditProject = (() => {
   editProjectForm.addEventListener("submit", editThisProject)
+})()
+
+// Delete project
+const canDeleteProject = (() => {
+  delProjectBtn.addEventListener("click", deleteThisProject)
 })()
 // remember to delete two storage
