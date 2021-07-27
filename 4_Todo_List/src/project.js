@@ -26,10 +26,24 @@ const getAllProjects = () => {
 }
 
 // Find a project
-const findProject = (projectname) => {
+const findProject = (projectName) => {
   let allProjects = getAllProjects()
-  let thatProject = allProjects.find( storedProject => storedProject.name == projectname)
+  let thatProject = allProjects.find( storedProject => storedProject.name == projectName)
   return thatProject
+}
+
+// Update project storage
+const updateProjectStorage = (oldProjectName, newProjectName) => {
+  let projectStorage = JSON.parse(localStorage.getItem("myProject"))
+  let newStorage = projectStorage.map((project) => {
+    if (project.name == oldProjectName) {
+      project.name = newProjectName
+      syncProject(project)
+      return project
+    }
+  })
+  newStorage = JSON.stringify(newStorage)
+  localStorage.setItem("myProject", newStorage)
 }
 
 // Synchronize current project
@@ -57,7 +71,11 @@ const createNewProject = (e) => {
 }
 
 // Edit project name
-// const editThisProject = ()
+const editThisProject = (e) => {
+  let oldProjectName = getCurrentProject().name
+  let newProjectName = e.target.elements.name.value
+  updateProjectStorage(oldProjectName, newProjectName)
+}
 
 // Update project currentProject.update this.name
 
@@ -69,6 +87,7 @@ export {
   findProject,
   syncProject,
   getCurrentProject,
-  createNewProject
+  createNewProject,
+  editThisProject
 }
 

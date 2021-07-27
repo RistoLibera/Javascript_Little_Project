@@ -1,8 +1,9 @@
-import {getAllProjects, getCurrentProject} from "./project"
+import {getAllProjects, getCurrentProject, editThisProject} from "./project"
 
 const projectBody = document.querySelector(".project-body")
 const projectName = document.querySelector(".project-name")
-const cancelBtn = document.querySelector(".cancel")
+const editProjectModal = document.querySelector(".edit-project-form-modal")
+const editProjectForm = document.querySelector(".edit-project-form")
 const editProjectBtn = document.querySelector(".edit-project")
 const delProjectBtn = document.querySelector(".delete-project")
 
@@ -23,10 +24,15 @@ const autoShowBody = (() => {
   } 
 })()
 
-// Edit project name
-// const editProject = (() =>{
+// Open edit project form
+const canTriggerProjectForm = (() =>{
+  editProjectBtn.onclick = () => {
+    editProjectModal.classList.toggle("hidden")
+  }
+})()
 
-//   editProjectBtn.addEventListener("click", )
-// })()
-
+// Edit project
+const canEditProject = (() => {
+  editProjectForm.addEventListener("submit", editThisProject)
+})()
 // remember to delete two storage

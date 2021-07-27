@@ -21,7 +21,7 @@ let canToggleSideBar = (() => {
 })()
 
 // Open new project form
-let canTriggerForm = (() => {
+let canTriggerProjectForm = (() => {
   addProjectBtn.onclick = () => {
     newProjectModal.classList.toggle("hidden")
   }
