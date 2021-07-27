@@ -40,6 +40,8 @@ const updateProjectStorage = (oldProjectName, newProjectName) => {
       project.name = newProjectName
       syncProject(project)
       return project
+    } else {
+      return project
     }
   })
   newStorage = JSON.stringify(newStorage)

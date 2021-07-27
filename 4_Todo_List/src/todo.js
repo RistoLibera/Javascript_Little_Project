@@ -10,16 +10,16 @@ const Todo = (title, due, priority, checked) => {
 }
 
 // Get todo content
-const getTodoContent = (array) => {
-  let tableRows = []
+// const getTodoContent = (array) => {
+//   let tableRows = []
 
-  array.forEach((todo) => {
-    let rowHtml = `
+//   array.forEach((todo) => {
+//     let rowHtml = `
     
-    `
-    tableRows.push(rowHtml)
-  })
+//     `
+//     tableRows.push(rowHtml)
+//   })
 
-  return tableRows
-}
+//   return tableRows
+// }
 

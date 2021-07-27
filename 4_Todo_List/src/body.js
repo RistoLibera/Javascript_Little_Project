@@ -31,7 +31,7 @@ const canTriggerProjectForm = (() =>{
   }
 })()
 
-// Edit project
+// // Edit project
 const canEditProject = (() => {
   editProjectForm.addEventListener("submit", editThisProject)
 })()

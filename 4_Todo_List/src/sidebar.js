@@ -36,8 +36,9 @@ let canCreateProject = (() => {
 let canCancelForm = (() => {
   let buttonsArray = Array.from(cancelBtns)
   buttonsArray.forEach((button) => {
+    let modal = button.closest("section")
     button.onclick = () => {
-      newProjectModal.classList.toggle("hidden")
+      modal.classList.toggle("hidden")
     }
   })
 })()
@@ -45,7 +46,7 @@ let canCancelForm = (() => {
 // Show projects
 let canShowProject = (() => {
   let allProjects = getAllProjects()
-  allProjects.map((project, index) => {
+  allProjects.map((project) => {
     let newLine = document.createElement("li")
     newLine.innerHTML = project.name
     newLine.classList.add("list-item")
