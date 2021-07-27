@@ -33,19 +33,17 @@ const findProject = (projectName) => {
 }
 
 // Update project storage
-const updateProjectStorage = (oldProjectName, newProjectName) => {
+const updateProjectStorage = (newProject, oldProject) => {
   let projectStorage = JSON.parse(localStorage.getItem("myProject"))
-  let newStorage = projectStorage.map((project) => {
-    if (project.name == oldProjectName) {
-      project.name = newProjectName
-      syncProject(project)
-      return project
-    } else {
-      return project
+  let tempStorage
+
+  projectStorage.map((project, index) => {
+    if (project.name == oldProject.name) {
+      projectStorage.splice(index, 1, newProject)
+      tempStorage = JSON.stringify(projectStorage)
+      localStorage.setItem("myProject", tempStorage)
     }
   })
-  newStorage = JSON.stringify(newStorage)
-  localStorage.setItem("myProject", newStorage)
 }
 
 // Synchronize current project
@@ -74,9 +72,11 @@ const createNewProject = (e) => {
 
 // Edit project name
 const editThisProject = (e) => {
-  let oldProjectName = getCurrentProject().name
-  let newProjectName = e.target.elements.name.value
-  updateProjectStorage(oldProjectName, newProjectName)
+  let oldProject = getCurrentProject()
+  let newProject = getCurrentProject()
+  newProject.name = e.target.elements.name.value
+  syncProject(newProject)
+  updateProjectStorage(newProject, oldProject)
 }
 
 // Update project currentProject.update this.name
