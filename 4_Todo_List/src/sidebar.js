@@ -1,6 +1,6 @@
 import {Project, storeProject, getAllProjects, 
         findProject, syncProject, createNewProject} from "./project"
-import {getTodoContent} from "./todo"
+import {showTodos} from "./todo"
 
 const modalSections = document.getElementsByClassName("modal")
 const sidebar = document.querySelector(".project")
@@ -80,23 +80,10 @@ let canShowContent = (() => {
       let project = findProject(listItem.textContent)
       // Synchronize current project
       syncProject(project)
-      showProjectName(project)
-      showTodos(project)
+      projectName.innerHTML = project.name
+      todoList.innerHTML = showTodos(project)
       projectBody.classList.remove("hidden")  
     })
   })
-
-  // Update project name
-  let showProjectName = (project) => {
-    projectName.innerHTML = project.name
-  }
-
-  // Update todo list 
-  let showTodos = (project) => {
-    let todoItems = getTodoContent(project)
-    if (todoItems) {
-      todoList.innerHTML = todoItems.map((tableRow) => tableRow).join("")
-    }
-  }
 })()
 

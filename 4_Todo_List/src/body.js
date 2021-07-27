@@ -1,6 +1,6 @@
 import {getAllProjects, getCurrentProject, editThisProject, 
         deleteThisProject, syncProject, updateProjectStorage} from "./project"
-import {createTodo} from "./todo"
+import {createTodo, showTodos} from "./todo"
 
 const projectBody = document.querySelector(".project-body")
 const projectName = document.querySelector(".project-name")
@@ -11,6 +11,7 @@ const delProjectBtn = document.querySelector(".delete-project")
 const newTodoModal = document.querySelector(".new-todo-form-modal")
 const newProjectForm = document.querySelector(".new-todo-form")
 const newTodoBtn = document.querySelector(".new-todo")
+const todoList = document.querySelector(".todo-list")
 
 // Hide body when no projects
 const autoHideBody = (() => {
@@ -26,6 +27,7 @@ const autoShowBody = (() => {
   if (currentProject) {
     projectName.innerHTML = currentProject.name
     projectBody.classList.remove("hidden")
+    todoList.innerHTML = showTodos(currentProject)
   } 
 })()
 

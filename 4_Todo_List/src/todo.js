@@ -51,8 +51,19 @@ const getTodoContent = (project) => {
   return tableRows
 }
 
+const showTodos = (project) => {
+  let todoItems = getTodoContent(project)
+  if (todoItems) {
+    let listHtml = todoItems.map((tableRow) => tableRow).join("")
+    return listHtml
+  } else {
+    return []
+  }
+
+}
+
 export {
   Todo,
   createTodo,
-  getTodoContent
+  showTodos
 }
