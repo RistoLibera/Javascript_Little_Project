@@ -38,12 +38,12 @@ const updateProjectStorage = (newProject, oldProject) => {
   let tempStorage
 
   projectStorage.map((project, index) => {
-    if (project.name == oldProject.name && newProject.name == oldProject.name) {
+    if (project.name == oldProject.name && newProject == oldProject) {
       // Delete
       projectStorage.splice(index, 1)
       tempStorage = JSON.stringify(projectStorage)
       localStorage.setItem("myProject", tempStorage)
-    } else if (project.name == oldProject.name) {
+    } else {
       // Add
       projectStorage.splice(index, 1, newProject)
       tempStorage = JSON.stringify(projectStorage)
@@ -86,7 +86,7 @@ const editThisProject = (e) => {
 }
 
 // Delete project
-const deleteThisProject = (e) => {
+const deleteThisProject = () => {
   let confirmation = confirm("Delete this project?")
   if (!confirmation) return
 
@@ -109,6 +109,7 @@ export {
   getCurrentProject,
   createNewProject,
   editThisProject,
-  deleteThisProject
+  deleteThisProject,
+  updateProjectStorage
 }
 

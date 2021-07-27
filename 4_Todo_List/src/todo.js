@@ -9,6 +9,18 @@ const Todo = (title, due, priority, checked) => {
   }
 }
 
+// Create new todo
+const createTodo = (e) => {
+  let formData = e.target.elements
+  let title = formData.title.value
+  let due = formData.due.value
+  let priority = formData.priority.value
+  let checked = false
+  let newTodo = Todo(title, due, priority, checked)
+
+  return newTodo
+}
+
 // Get todo content
 const getTodoContent = (project) => {
   let tableRows = []
@@ -41,5 +53,6 @@ const getTodoContent = (project) => {
 
 export {
   Todo,
+  createTodo,
   getTodoContent
 }

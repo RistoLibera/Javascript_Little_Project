@@ -95,7 +95,7 @@ let canShowContent = (() => {
   let showTodos = (project) => {
     let todoItems = getTodoContent(project)
     if (todoItems) {
-      todoList.innerHTML =  todoItems.map((tableRow) => tableRow).join("")
+      todoList.innerHTML = todoItems.map((tableRow) => tableRow).join("")
     }
   }
 })()

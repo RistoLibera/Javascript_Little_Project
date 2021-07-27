@@ -1,5 +1,6 @@
 import {getAllProjects, getCurrentProject, editThisProject, 
-        deleteThisProject} from "./project"
+        deleteThisProject, syncProject, updateProjectStorage} from "./project"
+import {createTodo} from "./todo"
 
 const projectBody = document.querySelector(".project-body")
 const projectName = document.querySelector(".project-name")
@@ -50,4 +51,16 @@ const canTriggerNewTodoForm = (() => {
   newTodoBtn.onclick = () => {
     newTodoModal.classList.toggle("hidden")
   }
+})()
+
+// Create new todo
+const canCreateTodo = (() => {
+  newProjectForm.addEventListener("submit",(e) => {
+    let newTodo = createTodo(e)
+    let oldProject = getCurrentProject()
+    let newProject = getCurrentProject()
+    newProject.todo.push(newTodo)
+    syncProject(newProject)
+    updateProjectStorage(newProject, oldProject)
+  })
 })()
