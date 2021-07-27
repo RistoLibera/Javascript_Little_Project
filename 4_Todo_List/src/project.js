@@ -48,7 +48,18 @@ const getCurrentProject = () => {
   }
 }
 
-// Update project
+// Create new project
+const createNewProject = (e) => {
+  let projectName = e.target.elements.name.value
+  let newProject = Project(projectName)
+  storeProject(newProject)  
+  syncProject(newProject)
+}
+
+// Edit project name
+// const editThisProject = ()
+
+// Update project currentProject.update this.name
 
 
 export {
@@ -57,6 +68,7 @@ export {
   getAllProjects,
   findProject,
   syncProject,
-  getCurrentProject
+  getCurrentProject,
+  createNewProject
 }
 

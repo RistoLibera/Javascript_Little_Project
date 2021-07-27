@@ -1,4 +1,5 @@
-import {Project, storeProject, getAllProjects, findProject, syncProject} from "./project"
+import {Project, storeProject, getAllProjects, 
+        findProject, syncProject, createNewProject} from "./project"
 
 const sidebar = document.querySelector(".project")
 const toggleBtn = document.querySelector(".toggle-project")
@@ -6,13 +7,13 @@ const toggleIcons = document.querySelectorAll(".toggle-icons")
 const addProjectBtn = document.getElementById("add-project")
 const newProjectModal = document.querySelector(".new-project-form-modal")  
 const newProjectForm = document.querySelector(".new-project-form")
-const cancelBtn = document.querySelector(".cancel-project")
+const cancelBtns = document.getElementsByClassName("cancel")
 const projectList = document.querySelector(".project-list")
 const projectBody = document.querySelector(".project-body")
 const projectName = document.querySelector(".project-name")
 
 // Show or hide sidebar
-let toggleSideBar = (() => {
+let canToggleSideBar = (() => {
   toggleBtn.onclick = () => {
     sidebar.classList.toggle("active")
     toggleIcons.forEach((icon) => icon.classList.toggle("hidden"))
@@ -20,32 +21,29 @@ let toggleSideBar = (() => {
 })()
 
 // Open new project form
-let triggerForm = (() => {
+let canTriggerForm = (() => {
   addProjectBtn.onclick = () => {
     newProjectModal.classList.toggle("hidden")
   }
 })()
 
 // Create project
-let createProject = (() => {
-  const createProject = (e) => {
-    let projectName = e.target.elements.name.value
-    let newProject = Project(projectName)
-    storeProject(newProject)  
-  }
-
-  newProjectForm.addEventListener("submit", createProject)
+let canCreateProject = (() => {
+  newProjectForm.addEventListener("submit", createNewProject)
 })()
 
 // Cancel form
-let cancelForm = (() => {
-  cancelBtn.onclick = () => {
-    newProjectModal.classList.toggle("hidden")
-  }
+let canCancelForm = (() => {
+  let buttonsArray = Array.from(cancelBtns)
+  buttonsArray.forEach((button) => {
+    button.onclick = () => {
+      newProjectModal.classList.toggle("hidden")
+    }
+  })
 })()
 
 // Show projects
-let showProject = (() => {
+let canShowProject = (() => {
   let allProjects = getAllProjects()
   allProjects.map((project, index) => {
     let newLine = document.createElement("li")
@@ -56,7 +54,7 @@ let showProject = (() => {
 })()
 
 // Show todo
-let showContent = (() => {
+let canShowContent = (() => {
   let projects = document.getElementsByClassName("list-item")
   let projectsArray = Array.from(projects)
   projectsArray.forEach((listItem) => {    
@@ -77,7 +75,7 @@ let showContent = (() => {
 
   // Update todo list 
   let showTodos = (project) => {
-    
+
   }
 })()
 
