@@ -14,6 +14,7 @@ const projectList = document.querySelector(".project-list")
 const projectBody = document.querySelector(".project-body")
 const projectName = document.querySelector(".project-name")
 const todoList = document.querySelector(".todo-list")
+const projectsList = document.getElementsByClassName("list-item")
 
 // Show or hide sidebar
 let canToggleSideBar = (() => {
@@ -73,10 +74,10 @@ let canShowProject = (() => {
 
 // Show todo
 let canShowContent = (() => {
-  let projects = document.getElementsByClassName("list-item")
-  let projectsArray = Array.from(projects)
+  let projectsArray = Array.from(projectsList)
   projectsArray.forEach((listItem) => {    
-    listItem.addEventListener("click",() => {
+    listItem.addEventListener("click",(e) => {
+      selectOneProject(e)
       let project = findProject(listItem.textContent)
       // Synchronize current project
       syncProject(project)
@@ -85,5 +86,15 @@ let canShowContent = (() => {
       projectBody.classList.remove("hidden")  
     })
   })
+
+  // Selected project display
+  const selectOneProject = (e) => {
+    projectsArray = Array.from(projectsList)
+    projectsArray.forEach((listItem) => {
+      listItem.classList.remove("selected")
+    })
+    let selected = e.target
+    selected.classList.add("selected")
+  }
 })()
 
