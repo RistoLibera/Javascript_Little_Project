@@ -28,13 +28,13 @@ const getAllProjects = () => {
 // Find a project
 const findProject = (projectName) => {
   let allProjects = getAllProjects()
-  let thatProject = allProjects.find( storedProject => storedProject.name == projectName)
+  let thatProject = allProjects.find(storedProject => storedProject.name == projectName)
   return thatProject
 }
 
 // Update project storage
 const updateProjectStorage = (newProject, oldProject) => {
-  let projectStorage = JSON.parse(localStorage.getItem("myProject"))
+  let projectStorage = getAllProjects()
   let tempStorage
 
   projectStorage.map((project, index) => {

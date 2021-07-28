@@ -81,6 +81,7 @@ let canShowContent = (() => {
       let project = findProject(listItem.textContent)
       // Synchronize current project
       syncProject(project)
+      // Auto update project content
       projectName.innerHTML = project.name
       todoList.innerHTML = showTodos(project)
       projectBody.classList.remove("hidden")  

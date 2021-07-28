@@ -13,7 +13,7 @@ const newProjectForm = document.querySelector(".new-todo-form")
 const newTodoBtn = document.querySelector(".new-todo")
 const todoList = document.querySelector(".todo-list")
 
-// Hide body when no projects
+// Auto hide body when no projects
 const autoHideBody = (() => {
   let allProjects = getAllProjects()
   if (allProjects.length == 0) {
@@ -21,7 +21,7 @@ const autoHideBody = (() => {
   }
 })()
 
-// Show last checked project
+// Auto show last checked project
 const autoShowBody = (() => {
   let currentProject = getCurrentProject()
   if (currentProject) {
@@ -66,3 +66,4 @@ const canCreateTodo = (() => {
     updateProjectStorage(newProject, oldProject)
   })
 })()
+
