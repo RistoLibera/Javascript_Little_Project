@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <link rel="shortcut icon" href="#">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet/reset.css">
     <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
@@ -82,8 +83,6 @@
           <form class="new-todo-form pop-up">
             <h2>New Todo</h2>
             <input type="text" name="title" class="form-row" placeholder="Title" required>
-            <textarea name="description" class="form-row" placeholder="Description" required></textarea>
-
             <div class="form-row">
               <div class="date-area">
                 <label for="date">Deadline</label>
@@ -123,8 +122,29 @@
         </table>
 
         <!-- Form to edit this todo -->
-        <section class="edit-todo pop-up-modal modal hidden">
-          <form class="edit-todo pop-up"></form>
+        <section class="edit-todo-form-modal modal hidden">
+          <form class="edit-todo-form pop-up">
+            <h2>Edit Todo</h2>
+            <input type="text" name="title" class="form-row" placeholder="Title" required>
+            <div class="form-row">
+              <div class="date-area">
+                <label for="date">Deadline</label>
+                <input type="date" id="date" name="due" required>
+              </div>
+              <select name="priority" required>
+                <optgroup label="priority">
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <button type="button" class="cancel">Cancel</button>
+              <input type="submit" value="+ Edit Todo">  
+            </div>
+          </form>
         </section>
       </section>
     </div>

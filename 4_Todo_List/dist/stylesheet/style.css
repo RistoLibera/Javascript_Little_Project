@@ -244,4 +244,13 @@ th {
   text-decoration: line-through;
 }
 
+input[name=title] {
+  font-size: 1.8rem;
+  height: 40px;
+}
+
+label[for=date] {
+  padding-top: 10px;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -85,6 +85,7 @@ let canShowContent = (() => {
       projectName.innerHTML = project.name
       todoList.innerHTML = showTodos(project)
       projectBody.classList.remove("hidden")  
+      location.reload()
     })
   })
 

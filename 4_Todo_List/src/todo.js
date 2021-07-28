@@ -44,7 +44,7 @@ const getTodoContent = (project) => {
           }
         </button>
       </td>
-      <td><button class='edit-todo' data-index='${index}'><span class="material-icons">zoom_in</span></button></td>
+      <td><button class='edit-todo' data-index='${index}'><span class="material-icons">description</span></button></td>
       <td><button class='delete-todo' data-index='${index}'><span class="material-icons">delete_forever</span></button></td>
     </tr>`
 
@@ -69,7 +69,6 @@ const showTodos = (project) => {
 const checkTodo = (e) => {
   let oldProject = getCurrentProject()
   let newProject = getCurrentProject()
-  let tableRow = e.target.closest("tr")
   let todoIndex = e.target.closest("button").dataset.index
   let alteredTodo = newProject.todo[todoIndex]
   
@@ -80,9 +79,39 @@ const checkTodo = (e) => {
   location.reload()
 }
 
+// Autofill old todo content
+const fillTodocontent = (form, todoIndex) => {
+  let oldProject = getCurrentProject()
+  let oldTodo = oldProject.todo[todoIndex]
+  let oldTitle = oldTodo.title
+  let oldDue = oldTodo.due
+  let oldPriority = oldTodo.priority
+
+  form.title.value = oldTitle
+  form.due.value = oldDue
+  form.priority.value = oldPriority
+}
+
+// Edit todo content
+const editTodo = (e, todoIndex) => {
+  let oldProject = getCurrentProject()
+  let newProject = getCurrentProject()
+  let alteredTodo = newProject.todo[todoIndex]
+  let formValue = e.target.elements
+
+  alteredTodo.title = formValue.title.value
+  alteredTodo.due = formValue.due.value
+  alteredTodo.priority = formValue.priority.value
+
+  syncProject(newProject)
+  updateProjectStorage(newProject, oldProject)
+}
+
 export {
   Todo,
   createTodo,
   showTodos,
-  checkTodo
+  checkTodo,
+  fillTodocontent,
+  editTodo
 }
