@@ -1,5 +1,5 @@
-import {Project, storeProject, getAllProjects, 
-        findProject, syncProject, createNewProject} from "./project"
+import { getAllProjects, findProject, syncProject, 
+        getCurrentProject, createNewProject} from "./project"
 import {showTodos} from "./todo"
 
 const modalSections = document.getElementsByClassName("modal")
@@ -77,7 +77,6 @@ let canShowContent = (() => {
   let projectsArray = Array.from(projectsList)
   projectsArray.forEach((listItem) => {    
     listItem.addEventListener("click",(e) => {
-      selectOneProject(e)
       let project = findProject(listItem.textContent)
       // Synchronize current project
       syncProject(project)
@@ -88,15 +87,18 @@ let canShowContent = (() => {
       location.reload()
     })
   })
+})()
 
-  // Selected project display
-  const selectOneProject = (e) => {
-    projectsArray = Array.from(projectsList)
-    projectsArray.forEach((listItem) => {
-      listItem.classList.remove("selected")
-    })
-    let selected = e.target
-    selected.classList.add("selected")
-  }
+// Display current project
+const canDisplayCurrentProject = (() => {
+  let projectsArray = Array.from(projectsList)
+  let storedProject = getCurrentProject()
+  projectsArray.forEach((listItem) => {
+    listItem.classList.remove("selected")
+    let currentProject = findProject(listItem.textContent)
+    if (currentProject.name == storedProject.name) {
+      listItem.classList.add("selected")
+    }
+  })
 })()
 
