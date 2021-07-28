@@ -1,5 +1,6 @@
 // Table within body
-import {checkTodo, fillTodocontent, editTodo} from "./todo"
+import {checkTodo, fillTodocontent, editTodo,
+        deleteTodo} from "./todo"
 
 const checkTodoBtns = document.getElementsByClassName("check-todo")
 const editTodoBtns = document.getElementsByClassName("edit-todo")
@@ -16,7 +17,7 @@ const canCheckTodo = (() => {
 })()
 
 // Open edit todo form and edit
-const canTriggerEditTodoForm = (() =>{
+const canTriggerAndEditTodoForm = (() =>{
   let buttons = Array.from(editTodoBtns)
   buttons.forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -27,5 +28,13 @@ const canTriggerEditTodoForm = (() =>{
         editTodo(e, todoIndex)
       })
     })
+  })
+})()
+
+// Delete one todo
+const canDelTodo = (() => {
+  let buttons = Array.from(delTodoBtns)
+  buttons.forEach((button) => {
+    button.addEventListener("click", deleteTodo)
   })
 })()

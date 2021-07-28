@@ -92,6 +92,8 @@ const deleteThisProject = () => {
 
   let oldProject = getCurrentProject()
   let newProject = getCurrentProject()
+  
+  // Update two database
   localStorage.removeItem("currentProject")
   updateProjectStorage(newProject, oldProject)
   location.reload()

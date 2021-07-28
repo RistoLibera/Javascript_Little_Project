@@ -107,11 +107,29 @@ const editTodo = (e, todoIndex) => {
   updateProjectStorage(newProject, oldProject)
 }
 
+// Delete todo
+const deleteTodo = (e) => {
+  let confirmation = confirm("Delete this todo?")
+  if (!confirmation) return
+
+  let oldProject = getCurrentProject()
+  let newProject = getCurrentProject()
+  let todoIndex = e.target.closest("button").dataset.index
+  let alteredTodo = newProject.todo
+
+  alteredTodo.splice(todoIndex, 1)
+  // Update two database
+  syncProject(newProject)
+  updateProjectStorage(newProject, oldProject)
+  location.reload()
+}
+
 export {
   Todo,
   createTodo,
   showTodos,
   checkTodo,
   fillTodocontent,
-  editTodo
+  editTodo,
+  deleteTodo
 }
