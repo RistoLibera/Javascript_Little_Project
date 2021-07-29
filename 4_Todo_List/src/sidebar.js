@@ -1,6 +1,6 @@
 import { getAllProjects, findProject, syncProject, 
-        getCurrentProject, createNewProject} from "./project"
-import {showTodos} from "./todo"
+        getCurrentProject, createNewProject } from "./project"
+import { showTodos } from "./todo"
 
 const modalSections = document.getElementsByClassName("modal")
 const sidebar = document.querySelector(".project")
@@ -78,8 +78,10 @@ let canShowContent = (() => {
   projectsArray.forEach((listItem) => {    
     listItem.addEventListener("click",(e) => {
       let project = findProject(listItem.textContent)
+
       // Synchronize current project
       syncProject(project)
+      
       // Auto update project content
       projectName.innerHTML = project.name
       todoList.innerHTML = showTodos(project)
@@ -101,4 +103,3 @@ const canDisplayCurrentProject = (() => {
     }
   })
 })()
-

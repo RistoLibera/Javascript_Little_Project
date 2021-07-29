@@ -1,6 +1,6 @@
-import {getAllProjects, getCurrentProject, editThisProject, 
-        deleteThisProject, syncProject, updateProjectStorage} from "./project"
-import {createTodo, showTodos} from "./todo"
+import { getAllProjects, getCurrentProject, editThisProject, 
+        deleteThisProject, syncProject, updateProjectStorage } from "./project"
+import { createTodo, showTodos } from "./todo"
 
 const projectBody = document.querySelector(".project-body")
 const projectName = document.querySelector(".project-name")
@@ -66,4 +66,3 @@ const canCreateTodo = (() => {
     updateProjectStorage(newProject, oldProject)
   })
 })()
-

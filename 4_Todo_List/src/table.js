@@ -1,6 +1,6 @@
 // Table within body
-import {checkTodo, fillTodocontent, editTodo,
-        deleteTodo} from "./todo"
+import { checkTodo, fillTodocontent, editTodo,
+        deleteTodo } from "./todo"
 
 const checkTodoBtns = document.getElementsByClassName("check-todo")
 const editTodoBtns = document.getElementsByClassName("edit-todo")

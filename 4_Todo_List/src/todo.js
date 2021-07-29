@@ -1,5 +1,5 @@
-import {getAllProjects, updateProjectStorage, syncProject,
-        getCurrentProject} from "./project"
+import { updateProjectStorage, syncProject,
+        getCurrentProject } from "./project"
 
 // Todo factory
 const Todo = (title, due, priority, checked) => {
@@ -83,6 +83,7 @@ const checkTodo = (e) => {
 const fillTodocontent = (form, todoIndex) => {
   let oldProject = getCurrentProject()
   let oldTodo = oldProject.todo[todoIndex]
+
   // Object destructuring
   const {title, due, priority} = oldTodo
   let oldTitle = title
@@ -120,6 +121,7 @@ const deleteTodo = (e) => {
   let alteredTodo = newProject.todo
 
   alteredTodo.splice(todoIndex, 1)
+  
   // Update two database
   syncProject(newProject)
   updateProjectStorage(newProject, oldProject)

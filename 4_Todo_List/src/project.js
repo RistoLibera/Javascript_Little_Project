@@ -99,9 +99,6 @@ const deleteThisProject = () => {
   location.reload()
 }
 
-// Update project currentProject.update this.name
-
-
 export {
   Project,
   storeProject,
@@ -114,4 +111,3 @@ export {
   deleteThisProject,
   updateProjectStorage
 }
-
