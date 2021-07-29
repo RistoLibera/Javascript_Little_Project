@@ -83,9 +83,11 @@ const checkTodo = (e) => {
 const fillTodocontent = (form, todoIndex) => {
   let oldProject = getCurrentProject()
   let oldTodo = oldProject.todo[todoIndex]
-  let oldTitle = oldTodo.title
-  let oldDue = oldTodo.due
-  let oldPriority = oldTodo.priority
+  // Object destructuring
+  const {title, due, priority} = oldTodo
+  let oldTitle = title
+  let oldDue = due
+  let oldPriority = priority
 
   form.title.value = oldTitle
   form.due.value = oldDue
@@ -98,7 +100,7 @@ const editTodo = (e, todoIndex) => {
   let newProject = getCurrentProject()
   let alteredTodo = newProject.todo[todoIndex]
   let formValue = e.target.elements
-
+  
   alteredTodo.title = formValue.title.value
   alteredTodo.due = formValue.due.value
   alteredTodo.priority = formValue.priority.value

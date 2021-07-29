@@ -53,10 +53,10 @@ let canClickOutside = (() => {
     let classes = e.target.className.split(" ")
     let hasModal = classes.some((oneclass) => oneclass == "modal")
     if (hasModal) {
-      let modals = Array.from(modalSections)
-      modals.forEach((section) => {
-        section.classList.add("hidden")
-      } )
+      // Array from map
+      Array.from(modalSections, (element) => {
+        element.classList.add("hidden")
+      })
     }
   })  
 })()
