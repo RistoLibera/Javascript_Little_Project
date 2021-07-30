@@ -1,40 +1,40 @@
 // Table within body
 import { checkTodo, fillTodocontent, editTodo,
-        deleteTodo } from "./todo"
+        deleteTodo } from "./todo";
 
-const checkTodoBtns = document.getElementsByClassName("check-todo")
-const editTodoBtns = document.getElementsByClassName("edit-todo")
-const editTodoModal = document.querySelector(".edit-todo-form-modal")
-const editTodoForm = document.querySelector(".edit-todo-form")
-const delTodoBtns = document.getElementsByClassName("delete-todo")
+const checkTodoBtns = document.getElementsByClassName("check-todo");
+const editTodoBtns = document.getElementsByClassName("edit-todo");
+const editTodoModal = document.querySelector(".edit-todo-form-modal");
+const editTodoForm = document.querySelector(".edit-todo-form");
+const delTodoBtns = document.getElementsByClassName("delete-todo");
 
 // Check or uncheck one todo
 const canCheckTodo = (() => {
-  let buttons = Array.from(checkTodoBtns)
+  let buttons = Array.from(checkTodoBtns);
   buttons.forEach((button) => {
-    button.addEventListener("click", checkTodo)
-  })
-})()
+    button.addEventListener("click", checkTodo);
+  });
+})();
 
 // Open edit todo form and edit
 const canTriggerAndEditTodoForm = (() =>{
-  let buttons = Array.from(editTodoBtns)
+  let buttons = Array.from(editTodoBtns);
   buttons.forEach((button) => {
     button.addEventListener("click", (e) => {
-      editTodoModal.classList.toggle("hidden")
-      let todoIndex = e.target.closest("button").dataset.index
-      fillTodocontent(editTodoForm, todoIndex)
+      editTodoModal.classList.toggle("hidden");
+      let todoIndex = e.target.closest("button").dataset.index;
+      fillTodocontent(editTodoForm, todoIndex);
       editTodoForm.addEventListener("submit", (e) => {
-        editTodo(e, todoIndex)
-      })
-    })
-  })
-})()
+        editTodo(e, todoIndex);
+      });
+    });
+  });
+})();
 
 // Delete one todo
 const canDelTodo = (() => {
-  let buttons = Array.from(delTodoBtns)
+  let buttons = Array.from(delTodoBtns);
   buttons.forEach((button) => {
-    button.addEventListener("click", deleteTodo)
-  })
-})()
+    button.addEventListener("click", deleteTodo);
+  });
+})();

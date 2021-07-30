@@ -1,5 +1,5 @@
 import { updateProjectStorage, syncProject,
-        getCurrentProject } from "./project"
+        getCurrentProject } from "./project";
 
 // Todo factory
 const Todo = (title, due, priority, checked) => {
@@ -9,25 +9,25 @@ const Todo = (title, due, priority, checked) => {
     due,
     priority,
     checked
-  }
-}
+  };
+};
 
 // Create new todo
 const createTodo = (e) => {
-  let formData = e.target.elements
-  let title = formData.title.value
-  let due = formData.due.value
-  let priority = formData.priority.value
-  let checked = false
-  let newTodo = Todo(title, due, priority, checked)
+  let formData = e.target.elements;
+  let title = formData.title.value;
+  let due = formData.due.value;
+  let priority = formData.priority.value;
+  let checked = false;
+  let newTodo = Todo(title, due, priority, checked);
 
-  return newTodo
-}
+  return newTodo;
+};
 
 // Get todo content
 const getTodoContent = (project) => {
-  let tableRows = []
-  let array = project.todo
+  let tableRows = [];
+  let array = project.todo;
 
   array.forEach((todo, index) => {
     let rowHtml = `
@@ -46,87 +46,87 @@ const getTodoContent = (project) => {
       </td>
       <td><button class='edit-todo' data-index='${index}'><span class="material-icons">description</span></button></td>
       <td><button class='delete-todo' data-index='${index}'><span class="material-icons">delete_forever</span></button></td>
-    </tr>`
+    </tr>`;
 
-  tableRows.push(rowHtml)
-  })
+  tableRows.push(rowHtml);
+  });
 
-  return tableRows
-}
+  return tableRows;
+};
 
 // Show todos
 const showTodos = (project) => {
-  let todoItems = getTodoContent(project)
+  let todoItems = getTodoContent(project);
   if (todoItems) {
-    let listHtml = todoItems.map((tableRow) => tableRow).join("")
-    return listHtml
+    let listHtml = todoItems.map((tableRow) => tableRow).join("");
+    return listHtml;
   } else {
-    return []
+    return [];
   }
-}
+};
 
 // Check or uncheck todo
 const checkTodo = (e) => {
-  let oldProject = getCurrentProject()
-  let newProject = getCurrentProject()
-  let todoIndex = e.target.closest("button").dataset.index
-  let alteredTodo = newProject.todo[todoIndex]
+  let oldProject = getCurrentProject();
+  let newProject = getCurrentProject();
+  let todoIndex = e.target.closest("button").dataset.index;
+  let alteredTodo = newProject.todo[todoIndex];
   
-  alteredTodo.checked = !(alteredTodo.checked)
-  syncProject(newProject)
-  updateProjectStorage(newProject, oldProject)
+  alteredTodo.checked = !(alteredTodo.checked);
+  syncProject(newProject);
+  updateProjectStorage(newProject, oldProject);
   // Update interface
-  location.reload()
-}
+  location.reload();
+};
 
 // Autofill old todo content
 const fillTodocontent = (form, todoIndex) => {
-  let oldProject = getCurrentProject()
-  let oldTodo = oldProject.todo[todoIndex]
+  let oldProject = getCurrentProject();
+  let oldTodo = oldProject.todo[todoIndex];
 
   // Object destructuring
-  const {title, due, priority} = oldTodo
-  let oldTitle = title
-  let oldDue = due
-  let oldPriority = priority
+  const {title, due, priority} = oldTodo;
+  let oldTitle = title;
+  let oldDue = due;
+  let oldPriority = priority;
 
-  form.title.value = oldTitle
-  form.due.value = oldDue
-  form.priority.value = oldPriority
-}
+  form.title.value = oldTitle;
+  form.due.value = oldDue;
+  form.priority.value = oldPriority;
+};
 
 // Edit todo content
 const editTodo = (e, todoIndex) => {
-  let oldProject = getCurrentProject()
-  let newProject = getCurrentProject()
-  let alteredTodo = newProject.todo[todoIndex]
-  let formValue = e.target.elements
+  let oldProject = getCurrentProject();
+  let newProject = getCurrentProject();
+  let alteredTodo = newProject.todo[todoIndex];
+  let formValue = e.target.elements;
   
-  alteredTodo.title = formValue.title.value
-  alteredTodo.due = formValue.due.value
-  alteredTodo.priority = formValue.priority.value
+  alteredTodo.title = formValue.title.value;
+  alteredTodo.due = formValue.due.value;
+  alteredTodo.priority = formValue.priority.value;
 
-  syncProject(newProject)
-  updateProjectStorage(newProject, oldProject)
-}
+  syncProject(newProject);
+  updateProjectStorage(newProject, oldProject);
+};
 
 // Delete todo
 const deleteTodo = (e) => {
-  let confirmation = confirm("Delete this todo?")
-  if (!confirmation) return
+  let confirmation = confirm("Delete this todo?");
+  if (!confirmation) return;
 
-  let oldProject = getCurrentProject()
-  let newProject = getCurrentProject()
-  let todoIndex = e.target.closest("button").dataset.index
-  let alteredTodo = newProject.todo
+  let oldProject = getCurrentProject();
+  let newProject = getCurrentProject();
+  let todoIndex = e.target.closest("button").dataset.index;
+  let alteredTodo = newProject.todo;
 
-  alteredTodo.splice(todoIndex, 1)
+  alteredTodo.splice(todoIndex, 1);
   
   // Update two database
-  syncProject(newProject)
-  updateProjectStorage(newProject, oldProject)
-  location.reload()
-}
+  syncProject(newProject);
+  updateProjectStorage(newProject, oldProject);
+  location.reload();
+};
 
 export {
   Todo,
@@ -136,4 +136,4 @@ export {
   fillTodocontent,
   editTodo,
   deleteTodo
-}
+};
