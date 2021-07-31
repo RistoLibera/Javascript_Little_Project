@@ -1,5 +1,6 @@
 import { getAllProjects, getCurrentProject, editThisProject, 
-        deleteThisProject, syncProject, updateProjectStorage } from "./project";
+        deleteThisProject, fillProjectName, syncProject, 
+        updateProjectStorage } from "./project";
 import { createTodo, showTodos } from "./todo";
 
 const projectBody = document.querySelector(".project-body");
@@ -41,6 +42,11 @@ const canTriggerEditProjectForm = (() =>{
 // Edit project
 const canEditProject = (() => {
   editProjectForm.addEventListener("submit", editThisProject);
+})();
+
+// Autofill old project name
+const canAutofillName = (() => {
+  fillProjectName(editProjectForm);
 })();
 
 // Delete project

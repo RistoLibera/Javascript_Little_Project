@@ -80,9 +80,17 @@ const createNewProject = (e) => {
 const editThisProject = (e) => {
   let oldProject = getCurrentProject();
   let newProject = getCurrentProject();
-  newProject.name = e.target.elements.name.value;
+  let formValue = e.target.elements;
+  newProject.name = formValue.name.value;
   syncProject(newProject);
   updateProjectStorage(newProject, oldProject);
+};
+
+// Autofill old project name
+const fillProjectName = (form) => {
+  let oldProject = getCurrentProject();
+  let oldname = oldProject.name;
+  form.name.value = oldname;
 };
 
 // Delete project
@@ -108,6 +116,7 @@ export {
   getCurrentProject,
   createNewProject,
   editThisProject,
+  fillProjectName,
   deleteThisProject,
   updateProjectStorage
 };

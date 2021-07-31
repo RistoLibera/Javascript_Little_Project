@@ -283,4 +283,8 @@ label[for="date"] {
   padding-top: 10px;
 }
 
+input:invalid {
+  background-image: linear-gradient(to right, red, pink);
+}
+
 

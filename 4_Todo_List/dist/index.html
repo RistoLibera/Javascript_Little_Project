@@ -38,7 +38,7 @@
       <section class="new-project-form-modal modal hidden">
         <form class="new-project-form pop-up">
           <h2>New Project</h2>
-          <input class="form-row" type="text" name="name" placeholder="Project Name" required>
+          <input class="form-row" type="text" name="name" placeholder="Project Name" maxlength="20" required>
           <div class="form-row">
             <button type="button" class="cancel">Cancel</button>
             <input type="submit" value="+ Add Project">
@@ -70,7 +70,7 @@
         <section class="edit-project-form-modal modal hidden">
           <form class="edit-project-form pop-up">
             <h2>Edit Project</h2>
-            <input class="form-row" type="text" name="name" placeholder="Please input a new name" required>
+            <input class="form-row" type="text" name="name" placeholder="Please input a new name" maxlength="20" required>
             <div class="form-row">
               <button type="button" class="cancel">Cancel</button>
               <input type="submit" value="+ Update Project">
@@ -82,7 +82,7 @@
         <section class="new-todo-form-modal modal hidden">
           <form class="new-todo-form pop-up">
             <h2>New Todo</h2>
-            <input type="text" name="title" class="form-row" placeholder="Title" required>
+            <input type="text" name="title" class="form-row" placeholder="Title" minlength="2" required>
             <div class="form-row">
               <div class="date-area">
                 <label for="date">Deadline</label>
@@ -125,7 +125,7 @@
         <section class="edit-todo-form-modal modal hidden">
           <form class="edit-todo-form pop-up">
             <h2>Edit Todo</h2>
-            <input type="text" name="title" class="form-row" placeholder="Title" required>
+            <input type="text" name="title" class="form-row" placeholder="Title" minlength="2" required>
             <div class="form-row">
               <div class="date-area">
                 <label for="date">Deadline</label>
