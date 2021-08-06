@@ -1,5 +1,6 @@
 import cityList from "./assets/city-list.json";
 
+// Open Weather App
 const API_KEY = "18";
 const searchForm = document.getElementById("search");
 const resultSection = document.getElementById("weather");
