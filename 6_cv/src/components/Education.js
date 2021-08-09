@@ -10,5 +10,23 @@ export default class Education extends Component {
     }
   }
 
-  
+  toggleDisplay = () => {
+    this.setState((preState) => ({
+      formDisplay: !preState.formDisplay
+    }))
+  }
+
+  render(){
+
+    return(
+      <section>
+        <header>
+          <h1>Education</h1>
+          <button type="button">Edit</button>
+        </header>
+
+        <div></div>
+      </section>
+    )
+  }
 }

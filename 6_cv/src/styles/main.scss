@@ -5,3 +5,62 @@
   font-size: 3.5rem;
   padding: 0.5rem 0;
 }
+
+section {
+  width: 50%;
+  margin: 1rem auto;
+  text-align: center;
+
+  header {
+    display: grid;
+    grid-template-columns: repeat(10, auto);
+    grid-template-rows: 1fr;
+    font-size: 2rem;
+    font-weight: 600;
+    background-color: rgb(155, 219, 216);
+
+    h1 {
+      grid-column: 4/7;
+    }
+
+    button {
+      grid-column: 9/11;
+      border: none;
+      background-color: rgb(228, 163, 66);
+    }
+  }
+}
+
+.block {
+  padding: 1rem;
+  text-align: left;
+
+  .info-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.4rem;
+    font-size: 1.4rem;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem;
+  text-align: left;
+
+  fieldset {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.4rem;
+    font-size: 1.4rem;
+  }
+
+  #submit {
+    width: 30%;
+    margin: 0 auto;
+  }
+}
