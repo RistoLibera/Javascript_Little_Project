@@ -11,21 +11,27 @@ export default class Experience extends Component {
   }
 
   toggleDisplay = () => {
-    this.setState((preState) => ({
-      formDisplay: !preState.formDisplay
+    this.setState((prevState) => ({
+      formDisplay: !prevState.formDisplay
     }))
   }
 
   render(){
+    // let content
+    // if (this.state.formDisplay) {
+    //   content = this.form()
+    // } else {
+    //   content = this.information()
+    // }
 
     return(
       <section>
         <header>
           <h1>Experience</h1>
-          <button type="button">Edit</button>
+          <button type="button" onClick={this.toggleDisplay}>New</button>
         </header>
 
-        <div></div>
+        {/* <div>{content}</div> */}
       </section>
     )
   }

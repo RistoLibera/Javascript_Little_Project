@@ -13,8 +13,8 @@ export default class Person extends Component {
   }
 
   toggleDisplay = () => {
-    this.setState((preState) => ({
-      formDisplay: !preState.formDisplay
+    this.setState((prevState) => ({
+      formDisplay: !prevState.formDisplay
     }))
   }
 
@@ -77,8 +77,6 @@ export default class Person extends Component {
     )
   }
 
-
-
   render(){
     let content
     if (this.state.formDisplay) {
@@ -91,12 +89,11 @@ export default class Person extends Component {
       <section>
         <header>
           <h1>Personal</h1>
-          <button type="button" onClick={this.toggleDisplay}>Edit</button>
+          <button type="button" onClick={this.toggleDisplay}>New</button>
         </header>
 
         <div>{content}</div>
       </section>
     )
   }
-
 }

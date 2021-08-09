@@ -34,13 +34,24 @@ section {
 .block {
   padding: 1rem;
   text-align: left;
+  font-size: 1.4rem;
 
   .info-line {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 0.4rem;
-    font-size: 1.4rem;
+  }
+
+  .edit-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.6rem;
+
+    button {
+      width: 40%;
+    }
   }
 }
 
