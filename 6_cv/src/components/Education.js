@@ -13,7 +13,6 @@ export default class Education extends Component {
   toggleDisplay = () => {
     this.setState((prevState) => ({
       formDisplay: !prevState.formDisplay,
-      educations: prevState.educations
     }))
   }
 
@@ -29,7 +28,6 @@ export default class Education extends Component {
   deleteEducation = (index) => {
     let newEducations = this.state.educations
     newEducations.splice(index, 1)
-
     this.setState({
       educations: newEducations
     })
@@ -83,8 +81,6 @@ export default class Education extends Component {
   }
 
   handleSubmit = (e) => {
-    console.log(this.state.educations)
-
     e.preventDefault()
     let inputs = e.target.elements
     let school = inputs.school.value
