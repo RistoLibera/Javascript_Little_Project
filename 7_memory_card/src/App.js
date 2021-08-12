@@ -12,7 +12,6 @@ import Xehanort from './images/Xehanort.png';
 import Xemnas from './images/Xemnas.png';
 import Xion from './images/Xion.png';
 
-
 const App = () => {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
@@ -31,17 +30,6 @@ const App = () => {
     {url: Xion, name: 'Xion' }
   ];
 
-  const arrangeCards = () => {
-    let arrangement = gameCards.map((card, index) => {
-      return(
-        <div className="cards" key={index}>
-          <Card card={card}></Card>
-        </div>
-      )
-    });
-    return arrangement;
-  }
-
   const shuffleCards = (cards) => {
     for(let i = cards.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -51,10 +39,39 @@ const App = () => {
     return cards;
   };
 
+  const clickCard = (card) => {
+    if(clickedCards.some(clickedCard => clickedCard.name === card.name )) {
+      let message = ["GAME OVER !", "Your score: ", score].join(" ");
+      if(bestScore < score) {
+        setBestScore(score)
+      }
+      setClickedCards([]);
+      setScore(0);
+      alert(message);
+    } else {
+      setScore(score + 1);
+      setClickedCards(clickedCards.concat(card));
+    }
+  }
+
+  const arrangeCards = () => {
+    let arrangement = gameCards.map((card, index) => {
+      return(
+        <div className="cards" onClick={() => clickCard(card)} key={index}>
+          <Card card={card}></Card>
+        </div>
+      )
+    });
+    return arrangement;
+  }
+
 
   useEffect(() => {
-  
-  }, [score])
+    if(score === 10) {
+      alert("Awesome!")
+      setTimeout(() => { window.location.reload()}, 500);
+    }
+  }, [score]);
 
 
   shuffleCards(gameCards);
@@ -71,7 +88,5 @@ const App = () => {
    </div>
   );
 };
-  
-
 
 export default App;
