@@ -1,3 +1,44 @@
-.test {
-  color: green;
+#root {
+  background-color: sandybrown;
+}
+
+.game-area {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 0.5rem;
+  text-align: center;
+
+  .score-room {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    #current {
+      padding: 0.5rem 0;
+      font-size: 1.4rem;
+    }
+  
+    #best {
+      padding: 0.5rem 0;
+      font-size: 1rem;
+    }
+  }
+}
+
+#card-container {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: auto auto;
+
+  .card-name {
+    margin: 5px;
+    text-align: center;
+  }
+}
+
+img {
+  width: 200px;
 }

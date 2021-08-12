@@ -1,16 +1,16 @@
 import React from 'react'
 
 const Card = (props) => {
-  const url = props.image.url
-
+  const cardURL = props.card.url;
+  const cardName = props.card.name;
+  const key = props.card.key;
+  
   return (
-    <div className="cards">
-      <img alt="a card" src={url}></img>
-      <p>{props.image.name}</p>
+    <div>
+      <img alt="a card" src={cardURL}></img>
+      <p class="card-name">{cardName}</p>
     </div>
-  )
+  );
 }
 
-export {
-  Card
-}
+export default Card

@@ -1,17 +1,15 @@
 import React from 'react'
 
 const Scoreboard = (props) => {
-  let score = props.currentScore
-  let bestScore = props.bestScore
+  let score = props.score;
+  let bestScore = props.bestScore;
 
   return (
     <div className="score-room">
-      <p>Current Score: {score}</p>
-      <p>Best Score: {bestScore}</p>
+      <p id="current">Current Score: {score}</p>
+      <p id="best">Best Score: {bestScore}</p>
     </div>
-  )
+  );
 }
 
-export {
-  Scoreboard
-}
+export default Scoreboard
