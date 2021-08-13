@@ -3,9 +3,13 @@ import React from "react";
 const Home = () => {
 
   return (
-    <div>
-      <h1>home</h1>
-    </div>
+    <section className="container">
+      <h1>Welcome!</h1>
+      <p>We have no kind of stuff that is useful!</p>
+      <p>We have no kind of stuff that is useful!</p>
+      <p>We have no kind of stuff that is useful!</p>
+      <p>We have no kind of stuff that is useful!</p>
+    </section>
   )
 }
 

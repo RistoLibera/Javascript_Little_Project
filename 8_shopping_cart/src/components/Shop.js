@@ -3,9 +3,9 @@ import React from "react";
 const Shop = () => {
 
   return (
-    <div>
+    <section className="container">
       <h1>shop</h1>
-    </div>
+    </section>
   )
 }
 
