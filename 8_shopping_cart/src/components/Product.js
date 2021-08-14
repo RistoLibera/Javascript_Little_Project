@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { ProductsData } from "./ProductsData";
+import Cart from './Cart';
 
 const Product = (props) => {
+  const [added, setAdded] = useState([]);
   let catalog = props.catalog;
+
+  const addProduct = (product) => {
+    setAdded(added.concat(product))
+  };
 
   const products = () => {
     let rendered = ProductsData.map((product, index) => {
@@ -11,6 +17,7 @@ const Product = (props) => {
           <div className="info" key={index}>
             <h3>{product.name}</h3>
             <p>{product.info}</p>
+            <button onClick={() =>addProduct(product)}>Add to cart</button>
           </div>
         )
       } else {
@@ -30,7 +37,8 @@ const Product = (props) => {
       <div className="products">
         {products()}
       </div>
-
+      
+      <Cart product={added} />
     </div>
 
 
