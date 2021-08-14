@@ -4,10 +4,13 @@ import Cart from './Cart';
 
 const Product = (props) => {
   const [added, setAdded] = useState([]);
+  const [times, setTimes] = useState(0);
+
   let catalog = props.catalog;
 
   const addProduct = (product) => {
-    setAdded(added.concat(product))
+    setAdded(product)
+    setTimes(times + 1)
   };
 
   const products = () => {
@@ -17,7 +20,7 @@ const Product = (props) => {
           <div className="info" key={index}>
             <h3>{product.name}</h3>
             <p>{product.info}</p>
-            <button onClick={() =>addProduct(product)}>Add to cart</button>
+            <button onClick={() => addProduct(product) }>Add to cart</button>
           </div>
         )
       } else {
@@ -32,15 +35,13 @@ const Product = (props) => {
     <div className="shopping">
       <div className="container">
         <h1>{catalog}</h1>
+        <div className="products">
+          {products()}
+        </div>
       </div>
-
-      <div className="products">
-        {products()}
-      </div>
-      
-      <Cart product={added} />
+      <Cart product={added} times={times} />
     </div>
-
+    
 
   );
 };

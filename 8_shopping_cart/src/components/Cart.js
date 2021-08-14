@@ -2,16 +2,22 @@ import React, { useState, useEffect } from "react";
 
 const Cart = (props) => {
   const [items, setItems] = useState([]);
-
-  let newItem = props.product
+  let newItem = props.product;
+  let times = props.times;
 
   const addItem = () => {
     if (newItem) {
-      setItems(newItem)
+      setItems(items.concat(newItem))
     }
+    newItem = []
   };
 
-  console.log(items)
+  const deleteItem = (index) => {
+    let renewed = [...items]
+    renewed.splice(index, 1)
+    setItems(renewed)
+  }
+
   const listItems = () => {
     let list 
     if (items.length > 0) {
@@ -21,6 +27,7 @@ const Cart = (props) => {
             <p>{item.name}</p>
             <p>{item.price}</p>
             <p>{item.info}</p>
+            <button onClick={() => deleteItem(index)}>cancel</button>
           </div>
         )
       })
@@ -29,16 +36,14 @@ const Cart = (props) => {
     return list;
   }
 
-  console.log(listItems())
-
   useEffect(() => {
     addItem()
-  }, [newItem])
+  }, [newItem, times])
 
   return(
-    <div className="container">
+    <div className="big-cart">
       <h1>Cart</h1>
-      <div>{listItems()}</div>
+      <div className="list">{listItems()}</div>
     </div>
   )
 };
