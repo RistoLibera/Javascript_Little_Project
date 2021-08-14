@@ -33,4 +33,34 @@
     text-decoration: underline;
     font-weight: 400;
   }
+
+  .catalog {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 20rem;
+
+    a {
+      color: blue;
+    }
+  }
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+
+  .info {
+    padding: 0.5rem;
+
+    h3 {
+      font-size: 2.3rem;
+    }
+
+    p {
+      font-size: 1rem;
+      text-decoration: none;
+    }
+  }
 }

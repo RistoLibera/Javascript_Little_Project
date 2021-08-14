@@ -7,8 +7,8 @@ const Nav = () => {
     <section className="navbar">
       <h1>What a Shop !</h1>
       <Link to="/">Home</Link>
-      <Link to="/Shop">Shop</Link>
-      <Link to="/About">About</Link>
+      <Link to="/shop">Shop</Link>
+      <Link to="/about">About</Link>
     </section>
   )
 }
