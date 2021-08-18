@@ -1,0 +1,106 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background-color: rgb(99, 187, 183);
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  a {
+    font-size: 2rem;
+    text-decoration: none;
+    padding-top: 0.5rem;
+    color: aquamarine;
+  }
+}
+
+.container {
+  text-align: center;
+  margin-top: 1.3rem;
+
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    margin: 2rem 0;
+    font-size: 1.7rem;
+    text-decoration: underline;
+    font-weight: 400;
+  }
+
+  .catalog {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 20rem;
+
+    a {
+      color: blue;
+    }
+  }
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+
+  .info {
+    padding: 0.5rem;
+
+    h3 {
+      font-size: 2.3rem;
+    }
+
+    p {
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    button {
+      margin-bottom: 0.6rem;
+    }
+  }
+}
+
+.shopping {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.big-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      p {
+        margin: 0.4rem 0;
+        font-size: 1.1rem;
+        text-decoration: line-through;
+        font-weight: 400;
+      }
+    }
+  }
+}
